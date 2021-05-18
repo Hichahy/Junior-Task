@@ -5,11 +5,10 @@ import useForm from "./useForm";
 import validate from "./validateInfo";
 
 const FormSignup = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors, } = useForm(
-    submitForm,
-    validate
-  );
+  const { handleChange, values, handleSubmit, errors, canBeSubmitted} =
+    useForm(submitForm, validate);
 
+  const isEnabled = canBeSubmitted();
 
   return (
     <form onSubmit={handleSubmit}>
@@ -57,7 +56,9 @@ const FormSignup = ({ submitForm }) => {
             {errors.message && <p>{errors.message}</p>}
           </div>
         </div>
-        <button type="submit" >Wyślij</button>
+        <button type="submit" disabled={!isEnabled}>
+          Wyślij
+        </button>
       </div>
     </form>
   );

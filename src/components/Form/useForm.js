@@ -8,6 +8,15 @@ const useForm = (callback, validate) => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [loading, setLoading] = useState(false)
+
+  const canBeSubmitted = () => {
+    return (
+      values.name.length > 0 &&
+      values.email.length > 0 &&
+      values.message.length > 0
+    );
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target; //destrukuryzacja
@@ -22,6 +31,7 @@ const useForm = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
+    setLoading(true)
   };
 
   useEffect(() => {
@@ -30,8 +40,15 @@ const useForm = (callback, validate) => {
     }
   }, [errors]);
 
-
-  return { handleChange, values, handleSubmit, errors, };
+  return {
+    handleChange,
+    values,
+    handleSubmit,
+    errors,
+    canBeSubmitted,
+    isSubmitting,
+    loading
+  };
 };
 
 export default useForm;

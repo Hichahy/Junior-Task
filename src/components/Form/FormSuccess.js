@@ -1,6 +1,7 @@
 import React from 'react';
 import './FormSignup.css'
 
+
 const FormSuccess = () => {
   return (
   <div className="main_box_succes">

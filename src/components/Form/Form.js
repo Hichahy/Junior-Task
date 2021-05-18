@@ -1,10 +1,13 @@
-import React, { useState } from "react";
+import React, { useState , Suspense, lazy } from "react";
 
+import Spinner from "./Loading/Spinner"
 import FormSignup from "./FormSignup";
-import FormSuccess from "./FormSuccess";
+
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const FormSuccess = lazy(() => import("./FormSuccess"))
 
   function submitForm() {
     setIsSubmitted(true);
@@ -15,7 +18,10 @@ const Form = () => {
         {!isSubmitted ? (
           <FormSignup submitForm={submitForm} />
         ) : (
-          <FormSuccess />
+          <Suspense fallback={<Spinner />}>
+          <FormSuccess /> 
+          </Suspense>
+          
         )}
     </>
   );
