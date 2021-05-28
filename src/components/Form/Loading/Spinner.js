@@ -1,7 +1,9 @@
-import  './Spinner.css';
+import "./Spinner.css";
 
 const Spinner = () => (
-    <div className="Loader">Loading...</div>
+  <div className="package">
+    <div className="Loader"></div>
+  </div>
 );
 
 export default Spinner;

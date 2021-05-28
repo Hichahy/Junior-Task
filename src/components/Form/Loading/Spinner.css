@@ -1,3 +1,8 @@
+.package {
+  height: 100vh;
+  
+}
+
 .Loader,
 .Loader:before,
 .Loader:after {
@@ -15,7 +20,9 @@
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
+  top:40%;
 }
+
 .Loader:before,
 .Loader:after {
   position: absolute;

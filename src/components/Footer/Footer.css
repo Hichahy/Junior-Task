@@ -1,0 +1,30 @@
+.footer {
+  background-color: #383b44;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  bottom: 0;
+}
+
+.tittle {
+  color: #02c5c1;
+  display: flex;
+  justify-content: center;
+}
+
+.link-box {
+  display: flex;
+  flex-direction: column;
+  width: 130px;
+  height: 150px;
+  align-items: center;
+}
+
+.link-box a {
+  color: #ebecf0;
+  text-decoration: none;
+  padding: 4px;
+  
+}
+

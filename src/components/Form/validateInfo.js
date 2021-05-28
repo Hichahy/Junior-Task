@@ -4,6 +4,8 @@ export default function validateInfo(values) {
   //Name
   if (!values.name.trim()) {
     errors.name = "Name required";
+  } else if (values.name.length < 2 ) {
+    errors.name="Name is to short"
   }
 
   //Email
@@ -16,8 +18,8 @@ export default function validateInfo(values) {
   //Message
   if (!values.message.trim()) {
     errors.message = "Write me a message ";
-  } else if (values.message.length > 120) {
-    errors.message = "Message is to long";
+  } else if (values.message.length > 120 ) {
+    errors.message = "Message is to long, you can use only 120 letters";
   }
 
   return errors;

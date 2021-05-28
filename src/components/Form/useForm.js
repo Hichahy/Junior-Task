@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 
-const useForm = (callback, validate) => {
+const useForm = ( callback, validate) => {
+
+
   const [values, setValues] = useState({
     name: "",
     email: "",
@@ -8,7 +10,7 @@ const useForm = (callback, validate) => {
   });
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   const canBeSubmitted = () => {
     return (
@@ -31,14 +33,27 @@ const useForm = (callback, validate) => {
 
     setErrors(validate(values));
     setIsSubmitting(true);
-    setLoading(true)
+    setLoading(true);
   };
 
   useEffect(() => {
-    if (Object.keys(errors).length === 0 && isSubmitting) {
+    if (Object.keys(errors).length === 0 && isSubmitting ) {
       callback();
     }
   }, [errors]);
+  
+//Refresh zrobiony do imporu przez FormSucces by oświerzyć po kliku w <p>
+ const refresh = () => {
+    window.location.reload()
+   }
+
+//Funkcja odświerzajaca strone po isSubbmitting
+   const refreshAutomat = () => {
+     setTimeout(function(){
+      refresh();
+   }, 6000);
+   }
+    
 
   return {
     handleChange,
@@ -47,7 +62,10 @@ const useForm = (callback, validate) => {
     errors,
     canBeSubmitted,
     isSubmitting,
-    loading
+    loading,
+    refresh,
+    refreshAutomat
+
   };
 };
 
