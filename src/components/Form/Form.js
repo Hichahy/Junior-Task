@@ -1,8 +1,8 @@
-import React, { useState, Suspense, lazy, useEffect } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import Footer from "../Footer/Footer";
-import FooterMobile from "../Footer/FooterMobile/FooterMobile";
 import Spinner from "./Loading/Spinner";
 import FormSignup from "./FormSignup";
+
 
 // Hook
 // function useWindowSize() {
@@ -44,6 +44,7 @@ const Form = () => {
           <FormSuccess />
         </Suspense>
       )}
+      
       {/* {size.width < 500 ? <FooterMobile /> : <Footer />} */}
       <Footer />
     </>

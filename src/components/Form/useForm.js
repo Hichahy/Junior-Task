@@ -51,7 +51,7 @@ const useForm = ( callback, validate) => {
    const refreshAutomat = () => {
      setTimeout(function(){
       refresh();
-   }, 6000);
+   }, 1000000);
    }
     
 

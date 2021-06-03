@@ -1,5 +1,5 @@
 .package {
-  height: 100vh;
+  height: 90vh;
   
 }
 
@@ -20,7 +20,8 @@
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
-  top:40%;
+  
+  
 }
 
 .Loader:before,

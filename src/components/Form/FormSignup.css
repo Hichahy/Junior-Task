@@ -1,4 +1,9 @@
-
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+}
 
 .main_container {
     display: flex;
@@ -6,10 +11,12 @@
     align-content: center;
     align-items: center;
     border: 1px solid ;
-    margin: 10vh;
+    margin: 40px;
+    width: 450px;
     border-radius: 30px;
     -webkit-box-shadow: 27px 24px 15px 1px rgba(0,0,0,0.39); 
 box-shadow: 27px 24px 15px 1px rgba(0,0,0,0.39);
+height: fit-content;
 }
 
 img {
@@ -20,8 +27,11 @@ img {
 
 .box_up {
     background: #02c5c1;
-  border-radius: 27px;
-  width: 100%;
+    border-radius: 27px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
  
 }
   
@@ -70,13 +80,13 @@ textarea {
 
 p {
     display: inline-block;
-    margin: 10px;
+    
 }
 
 .input_box {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    margin: 5px;
     width: 70%;
 }
 
@@ -118,12 +128,14 @@ button
     display: flex;
     align-content: center;
     align-items: center;
-    border-radius: 30px;
+    /* border-radius: 30px; */
     box-shadow: 27px 24px 15px 1px rgb(0 0 0 / 39%);
-    width: 75vh;
-    height: 36vh;
-    margin: 30vh;
-border: 1px solid 
+    /* width: 75vh; */
+    /* height: 36vh; */
+    /* margin: 30vh; */
+    height: 90vh;
+    border: 1px solid;
+    justify-content: center;
 }
 
 .box_succes_down {

@@ -55,10 +55,11 @@ const FormSignup = ({ submitForm }) => {
             />
             {errors.message && <p>{errors.message}</p>}
           </div>
-        </div>
-        <button type="submit" disabled={!isEnabled}>
+          <button type="submit" disabled={!isEnabled}>
           Send!
         </button>
+        </div>
+        
       </div>
     </form>
   );

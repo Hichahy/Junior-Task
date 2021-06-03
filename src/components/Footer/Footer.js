@@ -1,13 +1,80 @@
-import React from 'react';
+import React, { useState, useEffect } from "react";
 import "./Footer.css";
+import { IoIosAddCircle } from "react-icons/io";
+import { AiFillMinusCircle } from "react-icons/ai";
+
+function useWindowSize() {
+  const [windowSize, setWindowSize] = useState({
+    width: undefined,
+    height: undefined,
+  });
+  useEffect(() => {
+    function handleResize() {
+      setWindowSize({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    }
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return windowSize;
+}
 
 const Footer = () => {
+  const [showInfo, setShowInfo] = useState({
+    information: true,
+    tool: true,
+    api: true,
+  });
+
+  const size = useWindowSize();
+
+  useEffect(() => {
+    if (size.width >= 600) {
+      setShowInfo((prev) => ({
+        ...prev,
+        information: true,
+        tool: true,
+        api: true,
+      }));
+    } else {
+      setShowInfo((prev) => ({
+        ...prev,
+        information: false,
+        tool: false,
+        api: false,
+      }));
+    }
+  }, [size.width]);
+
+  console.log(`showInfo`, showInfo);
+
   return (
     <section className="footer">
       <section className="footer-Info">
         <div className="h-wrapper">
-          <h1 className="tittle">Information</h1>
-          <div className="link-box">
+          <div className="header">
+            <h1 className="tittle">Information</h1>
+            <i
+              onClick={() =>
+                setShowInfo((prev) => ({
+                  ...prev,
+                  information: !prev.information,
+                }))
+              }
+              className="icon"
+            >
+              {showInfo.information ? (
+                <AiFillMinusCircle size={30} />
+              ) : (
+                <IoIosAddCircle size={30} />
+              )}
+            </i>
+          </div>
+
+          <div className={showInfo.information ? "link-box" : "link-box-disabled"} >
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -48,8 +115,26 @@ const Footer = () => {
       </section>
       <section className="footer-Info">
         <div className="h-wrapper">
-          <h1 className="tittle">Helping Tools</h1>
-          <div className="link-box">
+          <div className="header">
+            <h1 className="tittle">Helping Tools</h1>
+            <i
+              onClick={() =>
+                setShowInfo((prev) => ({
+                  ...prev,
+                  tool: !prev.tool,
+                }))
+              }
+              className="icon"
+            >
+              {showInfo.tool ? (
+                <AiFillMinusCircle size={30} />
+              ) : (
+                <IoIosAddCircle size={30} />
+              )}
+            </i>
+          </div>
+
+          <div className={showInfo.tool ? "link-box" : "link-box-disabled"}>
             <a
               target="_blank"
               rel="noopener noreferrer"
@@ -90,8 +175,26 @@ const Footer = () => {
       </section>
       <section className="footer-Info">
         <div className="h-wrapper">
-          <h1 className="tittle">Free API</h1>
-          <div className="link-box">
+          <div className="header">
+            <h1 className="tittle">Free API</h1>
+            <i
+              onClick={() =>
+                setShowInfo((prev) => ({
+                  ...prev,
+                  api: !prev.api,
+                }))
+              }
+              className="icon"
+            >
+              {showInfo.api ? (
+                <AiFillMinusCircle size={30} />
+              ) : (
+                <IoIosAddCircle size={30} />
+              )}
+            </i>
+          </div>
+
+          <div className={showInfo.api ? "link-box" : "link-box-disabled"}>
             <a
               target="_blank"
               rel="noopener noreferrer"
