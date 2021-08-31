@@ -5,20 +5,35 @@ import useForm from "./useForm";
 import validate from "./validateInfo";
 
 const FormSignup = ({ submitForm }) => {
-  const { handleChange, values, handleSubmit, errors, canBeSubmitted } =
-    useForm(submitForm, validate);
+  const {
+    handleChange,
+    values,
+    handleSubmit,
+    errors,
+    canBeSubmitted,
+    sendEmail,
+  } = useForm(submitForm, validate);
 
   const isEnabled = canBeSubmitted();
 
+  function SendThisShit(e) {
+    handleSubmit(e);
+    sendEmail(e);
+  }
+
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={SendThisShit}>
       <div className="main_container">
         <div className="box_up">
           <h1 className="h1_question">Contact me</h1>
           <img src="img/message.png" alt="message cloud" />
         </div>
         <div className="box_down">
-          <p>We are always happy to find out what's on your mind</p>
+          <div className="p-box">
+            <p>We are always happy to find out </p>
+            <p>what's on your mind</p>
+          </div>
+
           <span>Name</span>
           <div className="input_box">
             <input
@@ -56,10 +71,9 @@ const FormSignup = ({ submitForm }) => {
             {errors.message && <p>{errors.message}</p>}
           </div>
           <button type="submit" disabled={!isEnabled}>
-          Send!
-        </button>
+            Send!
+          </button>
         </div>
-        
       </div>
     </form>
   );

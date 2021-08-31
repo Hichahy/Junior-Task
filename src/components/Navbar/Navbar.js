@@ -28,7 +28,7 @@ const Navbar = () => {
             </li>
             {SidebarData.map((item, index) => {
               return (
-                <li kry={index} className={item.cName}>
+                <li key={index} className={item.cName}>
                   <Link to={item.path}>
                     {item.icon}
                     <span className="span-nav">{item.title}</span>

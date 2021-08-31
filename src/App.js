@@ -1,10 +1,9 @@
 import React from "react";
 import "./App.css";
-import Form from "./components/Form/Form";
 import Navbar from "./components/Navbar/Navbar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Home from "./components/Pages/Home";
-import Contact from "./components/Pages/Contact";
+import Home from "./components/Pages/Home/Home";
+import Contact from "./components/Pages/Contact/Contact";
 
 function App() {
   return (

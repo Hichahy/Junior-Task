@@ -49,8 +49,6 @@ const Footer = () => {
     }
   }, [size.width]);
 
-  console.log(`showInfo`, showInfo);
-
   return (
     <section className="footer">
       <section className="footer-Info">
@@ -74,7 +72,9 @@ const Footer = () => {
             </i>
           </div>
 
-          <div className={showInfo.information ? "link-box" : "link-box-disabled"} >
+          <div
+            className={showInfo.information ? "link-box" : "link-box-disabled"}
+          >
             <a
               target="_blank"
               rel="noopener noreferrer"

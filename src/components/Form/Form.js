@@ -3,27 +3,6 @@ import Footer from "../Footer/Footer";
 import Spinner from "./Loading/Spinner";
 import FormSignup from "./FormSignup";
 
-
-// Hook
-// function useWindowSize() {
-//   const [windowSize, setWindowSize] = useState({
-//     width: undefined,
-//     height: undefined,
-//   });
-//   useEffect(() => {
-//     function handleResize() {
-//       setWindowSize({
-//         width: window.innerWidth,
-//         height: window.innerHeight,
-//       });
-//     }
-//     window.addEventListener("resize", handleResize);
-//     handleResize();
-//     return () => window.removeEventListener("resize", handleResize);
-//   }, []);
-//   return windowSize;
-// }
-
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
 
@@ -32,8 +11,6 @@ const Form = () => {
   function submitForm() {
     setIsSubmitted(true);
   }
-
-  // const size = useWindowSize();
 
   return (
     <>
@@ -44,8 +21,6 @@ const Form = () => {
           <FormSuccess />
         </Suspense>
       )}
-      
-      {/* {size.width < 500 ? <FooterMobile /> : <Footer />} */}
       <Footer />
     </>
   );

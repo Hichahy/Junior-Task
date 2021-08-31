@@ -1,0 +1,28 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-end;
+    align-items: center;
+    height: 90vh;
+    justify-content: center;
+}
+
+.description {
+    margin: 20px 70px 20px 70px;
+}
+
+.burger-i {
+    margin: 0;
+}
+
+@media (max-width: 600px) {
+    .home {
+        display: flex;
+        flex-direction: column;
+        align-content: flex-end;
+        align-items: center;
+        height: 90vh;
+        justify-content: center;
+        margin: 0 30px;
+    }
+}

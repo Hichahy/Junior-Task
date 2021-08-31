@@ -1,6 +1,9 @@
 .package {
   height: 90vh;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .Loader,
@@ -12,7 +15,6 @@
   color: #02c5c1;
   font-size: 11px;
   text-indent: -99999em;
-  margin: 55px auto;
   position: relative;
   width: 10em;
   height: 10em;
@@ -20,14 +22,12 @@
   -webkit-transform: translateZ(0);
   -ms-transform: translateZ(0);
   transform: translateZ(0);
-  
-  
 }
 
 .Loader:before,
 .Loader:after {
   position: absolute;
-  content: '';
+  content: "";
 }
 .Loader:before {
   width: 5.2em;

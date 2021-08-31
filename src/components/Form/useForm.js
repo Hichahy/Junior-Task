@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import emailjs from "emailjs-com"
 
 const useForm = ( callback, validate) => {
 
@@ -28,8 +29,19 @@ const useForm = ( callback, validate) => {
     });
   };
 
+  function sendEmail(e) {
+    e.preventDefault();
+    emailjs.sendForm('service_g53hzli', 'template_xis32lo', e.target, 'user_PhVsmGbULYRoY9DfzPYKm')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    
 
     setErrors(validate(values));
     setIsSubmitting(true);
@@ -42,7 +54,7 @@ const useForm = ( callback, validate) => {
     }
   }, [errors]);
   
-//Refresh zrobiony do imporu przez FormSucces by oświerzyć po kliku w <p>
+//Refresh zrobiony do imporu przez FormSucces by ośdwierzyć po kliku sek w <p> go back
  const refresh = () => {
     window.location.reload()
    }
@@ -51,7 +63,7 @@ const useForm = ( callback, validate) => {
    const refreshAutomat = () => {
      setTimeout(function(){
       refresh();
-   }, 1000000);
+   }, 6000);
    }
     
 
@@ -64,8 +76,8 @@ const useForm = ( callback, validate) => {
     isSubmitting,
     loading,
     refresh,
-    refreshAutomat
-
+    refreshAutomat,
+    sendEmail
   };
 };
 
