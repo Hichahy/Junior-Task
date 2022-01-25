@@ -31,7 +31,7 @@ const useForm = ( callback, validate) => {
 
   function sendEmail(e) {
     e.preventDefault();
-    emailjs.sendForm('service_g53hzli', 'template_xis32lo', e.target, 'user_PhVsmGbULYRoY9DfzPYKm')
+    emailjs.sendForm('tutaj api keys z emialjs')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
